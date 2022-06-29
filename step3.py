@@ -1,7 +1,6 @@
-import pymrio
-
-import pandas as pd
 import numpy as np
+import pandas as pd
+import pymrio
 
 """
 Constructing a simple IO table that involves two economic sectors
