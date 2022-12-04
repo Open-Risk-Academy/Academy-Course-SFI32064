@@ -1,6 +1,6 @@
 # Academy-Course-SFI32064
 
-This repository contains supporting material for the [Open Risk Academy course](https://www.openriskacademy.com/course/view.php?id=64): "An introduction to Environmentally Extended Input-Output Economic Models using Python (the pymrio package)"
+This repository contains supporting material for the [Open Risk Academy course](https://www.openriskacademy.com/course/view.php?id=64): "An introduction to Environmentally Extended Input-Output Economic Models using Python (the pymrio package)". Discuss the course at the [Open Risk Commons](https://www.openriskcommons.org/t/academy-course-introduction-to-input-output-models-using-python/96)
 
 ![US-IO](US-IO.png)
 
