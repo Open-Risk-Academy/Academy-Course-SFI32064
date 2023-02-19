@@ -1,3 +1,5 @@
+# (c) 2022 - 2023 Open Risk (https://www.openriskmanagement.com)
+
 import numpy as np
 import pandas as pd
 import pymrio
