@@ -10,6 +10,7 @@ Constructing a simple IO table that involves two economic sectors
 Step 3 of the Academy Course [SFI32064](https://www.openriskacademy.com/course/view.php?id=64)
 
 """
+
 # Initialize the system
 io = pymrio.IOSystem()
 

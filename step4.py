@@ -14,6 +14,7 @@ Step 4 of the Academy Course [SFI32064](https://www.openriskacademy.com/course/v
 """
 
 # Initialize the system (same as Step 3.2)
+
 io = pymrio.IOSystem()
 
 Z = pd.DataFrame(

@@ -24,6 +24,7 @@ sectors = ['Agriculture',
 regions = ['US']
 
 # create a pandas multi-index and give names to the two index components
+
 A_multiindex = pd.MultiIndex.from_product([regions, sectors], names=[u'region', u'sector'])
 
 A = pd.DataFrame(
@@ -52,8 +53,8 @@ io.A = A
 io.Y = Y
 
 # Calculate the missing components of the IO System
-io.calc_all()
 
+io.calc_all()
 
 # Report
 print("Z Table (Industry Transactions):\n", io.Z, "\n")

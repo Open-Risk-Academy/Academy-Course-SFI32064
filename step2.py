@@ -10,7 +10,9 @@ Constructing a very simple IO table that involves only one economic sector
 Step 2 of the Academy Course [SFI32064](https://www.openriskacademy.com/course/view.php?id=64)
 
 """
+
 # Initialize the system
+
 io = pymrio.IOSystem()
 
 # SINGLE SECTOR

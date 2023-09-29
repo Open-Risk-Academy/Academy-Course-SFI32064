@@ -45,7 +45,6 @@ F = pd.DataFrame(
     index=['Value Added'],
     columns=Z_multiindex)
 
-
 factor_input = pymrio.Extension(name='Value Added', F=F)
 io.factor_input = factor_input
 io.factor_input.unit = pd.DataFrame(data=['USD'], index=F.index, columns=['unit'])
@@ -53,5 +52,3 @@ io.factor_input.unit = pd.DataFrame(data=['USD'], index=F.index, columns=['unit'
 io.calc_all()
 
 print(factor_input.F)
-
-

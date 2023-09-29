@@ -4,13 +4,15 @@ This repository contains supporting material for the [Open Risk Academy course](
 
 ![US-IO](US-IO.png)
 
-# Course Overview
+## Course Overview
 
-This course is a DeepDive with nine segments, exploring Input-Output models using Python and the pymrio library. The course is at a core technical level. It requires working familiarity with python, basic linear algebra and elements of economic systems. Step by step we explore how one can define and perform useful operations in Environmentally Extended Input-Output Analysis.
+This course is a DeepDive type course with nine course segments, exploring _economic Input-Output models_ using Python and the **pymrio library**. 
 
-This course is the first installment of a series dedicated to EEIO models. The focus here is on thorough familiarization with the python environment and the pymrio package in particular and understanding the general structure and abilities of such model. 
+The course is at a _core technical_ level. It requires working familiarity with Python, basic knowledge of linear algebra (vectors, matrices) and elements of economic systems. 
 
-Specifically:
+Step by step we explore how one can define and perform useful operations in Environmentally Extended Input-Output Analysis. This course is the first installment of a series dedicated to EEIO models. The focus here is on thorough familiarization with the python environment (and the pymrio package in particular) and understanding the general structure and abilities of such model. 
+
+## Specific Benefits
 
 * We get exposed to the concept and structure of **Input-Output Models**
 * We create a variety of stylized IO models in Python
@@ -19,4 +21,4 @@ Specifically:
 * Discuss hybrid IO models
 * Work with a small but realistic IO table
 
-More in-depth discussion of economic and mathematical aspects of EEIO models is given in the seminal Miller-Blair Book, which is recommended reading. The material we cover in this course is contained mostly in Chapter 2 of that book (Foundations of Input–Output Analysis)
+More in-depth discussion of economic and mathematical aspects of EEIO models is given in the seminal Miller-Blair Book, which is recommended reading. The material we cover in this course is contained mostly in Chapter 2 of that book (Foundations of Input–Output Analysis).
