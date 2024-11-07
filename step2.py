@@ -18,12 +18,12 @@ io = pymrio.IOSystem()
 # SINGLE SECTOR
 
 Z = pd.DataFrame(
-    data=np.array([[1]]),
+    data=np.array([[1]]),  # initialize with value=1
     index=["S1"],
     columns=["S1"]
 )
 Y = pd.DataFrame(
-    data=np.array([[2]]),
+    data=np.array([[2]]),  # initialize with value=2
     index=["S1"],
     columns=["Y1"]
 )
@@ -39,7 +39,9 @@ print("Z Table (Industry Transactions):\n", io.Z, "\n")  # input
 print("Y Table (Demand): \n", io.Y, "\n")  # input
 print("x Vector (Total Output): \n", io.x, "\n")  # x = Z + Y
 print("A Table (Normalized Transactions): \n", io.A, "\n")  # A = Z / x
+print("B Table (Normalized Transactions): \n", io.As, "\n")  # B = Z / x
 print("L Table (Leontief Inverse): \n", io.L, "\n")  # L = 1 / (I - A)
+print("G Table (Ghosh Inverse): \n", io.G, "\n")  # L = 1 / (I - B)
 
 # Recalculate everything except the coefficients
 io.reset_all_to_coefficients()
