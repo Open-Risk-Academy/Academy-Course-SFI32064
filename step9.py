@@ -1,67 +1,51 @@
 # (c) 2022 - 2024 Open Risk (https://www.openriskmanagement.com)
 
-import numpy as np
-import pandas as pd
 import pymrio
 
 io = pymrio.IOSystem()
 
 """
 
-An actual IO model (US 2003 Aggregated Data)
+Using a public EEIO database (OECD-ICIO)
 Step 9 of the Academy Course [SFI32064](https://www.openriskacademy.com/course/view.php?id=64)
 
 
 """
 
-sectors = ['Agriculture',
-           'Mining',
-           'Construction',
-           'Manufacturing',
-           'Transportation',
-           'Services',
-           'Other']
-regions = ['US']
+oecd_folder_v2021 = "./oecd21"
+# log_2021 = pymrio.download_oecd(storage_folder=oecd_folder_v2021,  years=[2020])
+# print(log_2021)
 
-# create a pandas multi-index and give names to the two index components
+oecd20 = pymrio.parse_oecd(path=oecd_folder_v2021, year=2020)
 
-A_multiindex = pd.MultiIndex.from_product([regions, sectors], names=[u'region', u'sector'])
+# Get the labels of sectors 45
+# sectors = oecd20.get_sectors()
+# print(len(sectors))
+"""
+['A01_02', 'A03', 'B05_06', 'B07_08', 'B09', 'C10T12', 'C13T15', 'C16', 'C17_18', 'C19', 'C20', 'C21', 'C22', 'C23', 'C24', 'C25', 'C26', 'C27', 'C28', 'C29', 'C30', 'C31T33', 'D', 'E', 'F', 'G', 'H49', 'H50', 'H51', 'H52', 'H53', 'I', 'J58T60', 'J61', 'J62_63', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T']
+"""
+# print(list(sectors))
 
-A = pd.DataFrame(
-    data=np.array([[.2008, .0000, .0011, .0338, .0001, .0018, .0009],
-                   [.0010, .0658, .0035, .0219, .0151, .0001, .0026],
-                   [.0034, .0002, .0012, .0021, .0035, .0071, .0214],
-                   [.1247, .0684, .1801, .2319, .0339, .0414, .0726],
-                   [.0855, .0529, .0914, .0952, .0645, .0315, .0528],
-                   [.0897, .1668, .1332, .1255, .1647, .2712, .1873],
-                   [.0093, .0129, .0095, .0197, .0190, .0184, .0228]]),
-    index=A_multiindex,
-    columns=A_multiindex
-)
+# Get the labels of regions 77
+# regions = oecd20.get_regions()
+# print(len(regions))
+"""
+['ARG', 'AUS', 'AUT', 'BEL', 'BGD', 'BGR', 'BLR', 'BRA', 'BRN', 'CAN', 'CHE', 'CHL', 'CHN', 'CIV', 'CMR', 'COL', 'CRI', 'CYP', 'CZE', 'DEU', 'DNK', 'EGY', 'ESP', 'EST', 'FIN', 'FRA', 'GBR', 'GRC', 'HKG', 'HRV', 'HUN', 'IDN', 'IND', 'IRL', 'ISL', 'ISR', 'ITA', 'JOR', 'JPN', 'KAZ', 'KHM', 'KOR', 'LAO', 'LTU', 'LUX', 'LVA', 'MAR', 'MEX', 'MLT', 'MMR', 'MYS', 'NGA', 'NLD', 'NOR', 'NZL', 'PAK', 'PER', 'PHL', 'POL', 'PRT', 'ROU', 'ROW', 'RUS', 'SAU', 'SEN', 'SGP', 'SVK', 'SVN', 'SWE', 'THA', 'TUN', 'TUR', 'TWN', 'UKR', 'USA', 'VNM', 'ZAF']
+"""
+# print(list(regions))
 
-categories = ['final demand']
+# [3465 rows x 3465 columns]
+# print("Z Table (Industry Transactions):\n", oecd20.Z, "\n")
+# print(oecd20.Z.columns)
 
-fd_multiindex = pd.MultiIndex.from_product(
-    [regions, categories], names=[u'region', u'category'])
+print(oecd20.Z.index)
 
-Y = pd.DataFrame(
-    data=np.array([[1.2], [0], [0], [6.8], [0], [0], [0]]),
-    index=A_multiindex,
-    columns=fd_multiindex)
+# Isolate a region
+df1 = oecd20.Z.xs("DEU", level='region', axis=1, drop_level=True)
+df2 = df1.xs("DEU", level='region', axis=0, drop_level=True)
 
-io.A = A
-io.Y = Y
+# Isolate a sector
+series1 = df2.loc[:, ['K']]
+series2 = df2.loc[['K'], :].transpose()
+print(series2)
 
-# Calculate the missing components of the IO System
-
-io.calc_all()
-
-# Report
-print("Z Table (Industry Transactions):\n", io.Z, "\n")
-print("Y Table (Demand): \n", io.Y, "\n")
-print("x Vector (Total Output): \n", io.x, "\n")
-print("A Table (Normalized Transactions): \n", io.A, "\n")
-print("L Table (Leontief Inverse): \n", io.L, "\n")
-
-# Solution to exercise
-print(io.L.values.sum(axis=0))
