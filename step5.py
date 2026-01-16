@@ -1,4 +1,4 @@
-# (c) 2022 - 2025 Open Risk (https://www.openriskmanagement.com)
+# (c) 2022 - 2026 Open Risk (https://www.openriskmanagement.com)
 
 import numpy as np
 import pandas as pd

@@ -1,4 +1,4 @@
-# (c) 2022 - 2025 Open Risk (https://www.openriskmanagement.com)
+# (c) 2022 - 2026 Open Risk (https://www.openriskmanagement.com)
 
 import numpy as np
 import pandas as pd
@@ -39,7 +39,7 @@ print("Z Table (Industry Transactions):\n", io.Z, "\n")  # input
 print("Y Table (Demand): \n", io.Y, "\n")  # input
 print("x Vector (Total Output): \n", io.x, "\n")  # x = Z + Y
 print("A Table (Normalized Transactions): \n", io.A, "\n")  # A = Z / x
-print("B Table (Normalized Transactions): \n", io.As, "\n")  # B = Z / x
+print("B Table (Normalized Transactions): \n", io.B, "\n")  # B = Z / x
 print("L Table (Leontief Inverse): \n", io.L, "\n")  # L = 1 / (I - A)
 print("G Table (Ghosh Inverse): \n", io.G, "\n")  # L = 1 / (I - B)
 
