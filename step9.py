@@ -1,5 +1,6 @@
 # (c) 2022 - 2026 Open Risk (https://www.openriskmanagement.com)
 
+import os
 import pymrio
 
 io = pymrio.IOSystem()
@@ -13,9 +14,15 @@ Step 9 of the Academy Course [SFI32064](https://www.openriskacademy.com/course/v
 """
 
 oecd_folder_v2021 = "./oecd21"
-# log_2021 = pymrio.download_oecd(storage_folder=oecd_folder_v2021,  years=[2020])
-# print(log_2021)
 
+if not os.path.exists(oecd_folder_v2021):
+    print('creating data directory')
+    os.makedirs(oecd_folder_v2021)
+    print('downloading data')
+    log_2021 = pymrio.download_oecd(storage_folder=oecd_folder_v2021,  version="v2021", years=[2020])
+    print(log_2021)
+
+print('parsing data')
 oecd20 = pymrio.parse_oecd(path=oecd_folder_v2021, year=2020)
 
 # Get the labels of sectors 45
